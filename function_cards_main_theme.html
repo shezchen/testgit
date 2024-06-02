@@ -47,7 +47,11 @@
     </script> 
     
    
+<<<<<<< HEAD
     <h1 align="center">标题</h1>
+=======
+    <h1 align="center">function_cards v0.3</h1>
+>>>>>>> 0cf0b13 (2change)
     <form>
         <label for="on">显示快速通关计时器:</label>
         <input type="radio" id="radio_on" name="time_count" value="on">
@@ -56,6 +60,7 @@
         <label for="off">否</label>
         <button type="button" onclick="savecount()">确定(这不会影响快速通关时间的记录)</button>
     </form>
+<<<<<<< HEAD
     <div id="title_div"><p class="indent">在这里打算写些别的</p></div>
     
     <ul id="little_right">
@@ -68,6 +73,22 @@
         <li><p id="com_7"></p><button class="button " onclick="button_func(7)">7</button></li>
         <li><p id="com_8"></p><button class="button " onclick="button_func(8)">8</button></li>
         <li><p id="com_9"></p><button class="button " onclick="button_func(9)">9</button></li>
+=======
+    <div id="title_div"><p class="indent">此处应该是介绍    现在这个小demo终于可以跑了......感觉有些卡牌需要重绘？关卡也没做完......
+        跑起来也好丑陋:D    目前大部分情况下能正常运行，但也许还有未知的一些问题   希望屏幕前的你帮我debug（如果可以）hhh  可以删数据的，在最底下
+    </p></div>
+    
+    <ul id="little_right">
+        <li><p id="com_1"></p><button class="button " onclick="button_func(1)">chapter1</button></li>
+        <li><p id="com_2"></p><button class="button " onclick="button_func(2)">chapter2</button></li>
+        <li><p id="com_3"></p><button class="button " onclick="button_func(3)">chapter3</button></li>
+        <li><p id="com_4"></p><button class="button " onclick="button_func(4)">chapter4</button></li>
+        <li><p id="com_5"></p><button class="button " onclick="button_func(5)">chapter5</button></li>
+        <li><p id="com_6"></p><button class="button " onclick="button_func(6)">chapter6</button></li>
+        <li><p id="com_7"></p><button class="button " onclick="button_func(7)">chapter7</button></li>
+        <li><p id="com_8"></p><button class="button " onclick="button_func(8)">chapter8</button></li>
+        <li><p id="com_9"></p><button class="button " onclick="button_func(9)">chapter9</button></li>
+>>>>>>> 0cf0b13 (2change)
     </ul>
     <br/>
     <br/>
@@ -87,8 +108,13 @@
             console.log(_complete[tl],_fail[tl]);
             _time_to_complete[tl] = parseFloat(localStorage.getItem("time_complete"+tl), 10);
             //_time_to_complete[tl] = _time_to_complete[tl].toFixed(3);
+<<<<<<< HEAD
             if(_complete[tl]==0){document.getElementById("com_"+tl).innerHTML = "未完成    总计失败："+_fail[tl];}//失败次数的功能也要加上
             else{document.getElementById("com_"+tl).innerHTML = "已解决！最短用时："+_time_to_complete[tl].toFixed(3)+"s    总计失败："+_fail[tl];}
+=======
+            if(_complete[tl]==0){document.getElementById("com_"+tl).innerHTML = "未完成    总计尝试："+_fail[tl];}//尝试次数的功能也要加上
+            else{document.getElementById("com_"+tl).innerHTML = "已解决！最短用时："+_time_to_complete[tl].toFixed(3)+"s    总计尝试："+_fail[tl];}
+>>>>>>> 0cf0b13 (2change)
         }
         function savecount(){
             var radios = document.getElementsByName('time_count');
