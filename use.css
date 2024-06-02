@@ -1,0 +1,49 @@
+
+.cen{text-align: center;font-family: "微软雅黑";}
+.yellow{color:rgba(255, 234, 0, 0.592);}
+.green{color:rgba(0, 128, 0, 0.736);}
+.red{color:rgba(255, 0, 0, 0.914);}
+.chapter{text-align: left;text-indent: 2em; }
+.important{font-family: "微软雅黑";font-weight: 300;}
+.cen_button{display: inline-block;border-radius: 4px;cursor:pointer;
+font-size: larger;margin-left: 40%;margin-right: 40%;width:20%;} 
+.indent{text-indent: 2em;}  
+.button{display: inline-block;border-radius: 4px;cursor:pointer;
+    font-size: lighter;width:20%;}
+.biankuang{border:8px solid black;border-radius:30px/30px;
+    background-color: beige;}
+.big-x-red{background-image: url(red.jpg);width: 1000px;
+    background-position: center;}
+.big-x-purple{background-image: url(purple.jpg);}
+.cenbox{margin-left: 40%;margin-right: 40%;width:20%;}
+#bigx{background-color: lightgray;
+    background-position: center;
+    margin-left: 35%;margin-right: 35%;width:30%;cursor:pointer;}
+    /*margin属性是一个块类元素居中的办法*/
+.draggable {position: absolute;cursor: pointer; /* 提示用户可以拖动 */}
+#intarea {background-color: cornsilk;background-position: center;
+    margin-left: 30%;margin-right: 30%;width:40%;height: 2.5cm;
+    margin-top: 2cm;position: relative;z-index:1;}
+.int_card{color: darkblue;text-indent: 1em;}
+#the_a{position: relative;z-index:2;cursor:pointer;background-color:lightblue;
+    margin-left: 1cm;margin-top: 0.5cm;width: 5cm;height: 1.5cm;float: left;}
+#the_b{position: relative;z-index:2;cursor:pointer;background-color:lightcoral;
+    margin-right: 1cm;margin-top: 0.5cm;width: 5cm;height: 1.5cm;float: right;}
+.card{position: relative;z-index:2;margin-left: 0.5cm;margin-top:1cm;width:6cm;height:7.5cm;
+    background-image: url(picture/empty_copy.jpg);float: left;border-width: 0.2cm;
+    border-color: aliceblue;border-style: solid}
+#cardarea{position: relative;background-color:lightsteelblue;
+    background-position: center;margin-top: 3cm; width:36cm;height:10cm;z-index: 1;}
+/*#card1{position: relative;z-index:2;margin-left: 0.5cm;margin-top:1cm;width:4cm;height:5cm;;float: left;border-width: 0.2cm;border-color: aliceblue;border-style: solid;}
+#card2{position: relative;z-index:2;margin-left: 1cm;margin-top:1cm;width:4cm;height:5cm;background-image: url(picture/empty.jpg);float: left;border-width: 0.2cm;border-color: aliceblue;border-style: solid}
+#card3{position: relative;z-index:2;margin-left: 1cm;margin-top:1cm;width:4cm;height:5cm;background-image: url(picture/empty.jpg);float: left;border-width: 0.2cm;border-color: aliceblue;border-style: solid}
+#card4{position: relative;z-index:2;margin-left: 1cm;margin-top:1cm;width:4cm;height:5cm;background-image: url(picture/empty.jpg);float: left;border-width: 0.2cm;border-color: aliceblue;border-style: solid}
+#card5{position: relative;z-index:2;margin-left: 1cm;margin-top:1cm;width:4cm;height:5cm;background-image: url(picture/empty.jpg);float: left;border-width: 0.2cm;border-color: aliceblue;border-style: solid}
+*/
+#shengyucards{position: absolute;margin-top: 0.5cm;margin-left: 0;}
+#title_div{position: absolute;margin-top: 4cm;width: 7cm;margin-left: 70%;}
+#little_right{position: relative;margin-left: 10%;}
+#del{position: relative;margin-left: 10%;}
+#the_logo{color: black;}
+#the_plusplus{position: absolute;margin-left: 85%;margin-right: 0%;}
+.the{color: deepskyblue;color: tomato;color: darkorchid;}

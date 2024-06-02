@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 6</title>
+    <link rel="stylesheet" type="text/css" href="../use.css">
+    <!--在这里直接导入了use.css文件-->
+    <style type="text/css">
+        body{
+            background-color: honeydew;
+        }
+    </style>
+</head>
+<body> 
+    
+    <script>
+        <!--在这里写js吧-->
+        function button_func(){
+            var numberToStore = 6;
+            localStorage.setItem('choose', numberToStore.toString());
+            window.location.href = "../gameplay.html";
+        }
+    </script>
+    <h2 align="center">标题</h2>
+    <div class="biankuang">
+        <p class="chapter">这里就是一段介绍。</p>
+        <p class="chapter">这里就是另外一段介绍。</p>
+    </div>
+    
+
+    <button class="cen_button " onclick="button_func()">这里是按钮</button>
+</body>
+</html>

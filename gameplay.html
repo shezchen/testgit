@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="use.css">
+    <!--在这里直接导入了use.css文件-->
+</head>
+<body id="the_logo">
+    <script>
+    var choose = parseInt(localStorage.getItem('choose'), 10);//这里是在读取关卡数
+    //此处是核心变量，x,a,b.
+    var xab = [0,0,0];
+    var blue_type=0,red_type=0;
+    //type是属性 0代表加，乘，1代表减，除
+    var plusplus=0;//plusplus是++的当前值
+    var hand_num=0;//手牌数量
+    var all_card_num=30;//牌库的牌数量
+    var in_card_num=30;
+    var wenhaoduixiang=0;//?牌作用的对象
+    var change_a_b=0;//这个会用上吗？
+    var target_x_min=99999,target_x_max=999999;//关卡中，目标x的取值范围
+    var fill=0,fill_value=0;//fill牌产生的值和属性，0是蓝色，1是红色
+    var possibility = [0,0,0,0,0,
+                        0,0,0,0,0,
+                        0,0,0,0,0,
+                        0,0,0,0,0,
+                        0,0,0,0,0,
+                        0,0,0,0];
+    //possibility足足有29个元素！0到28
+    var counter = localStorage.getItem('count');//on  off
+    var need_time=0,game_time=0;time_trick=0;
+    const complete = 1;
+    var time_trick=0,card_trick = 0;
+    
+    
+        
+    
+    //随机数生成模块
+    function numrandom()
+    {
+        var randomInteger = Math.floor(Math.random() * 100) + 1;//1到100的整数
+        return randomInteger;
+    }
+        //floor代表了向下取整
+        //如果想要四舍五入，可以用var randomInteger = Math.round(Math.random() * (max - min)) + min;
+        //随机数生成模块结束
+    
+     
+        
+        
+        
+        
+        
+        
+        /*提示模块开始，使用 setInterval(function,time);*/
+        var ran=1;
+        setInterval (change,20000);
+        
+        function change(){
+            ran=numrandom();
+            document.getElementById("the_tips").innerHTML =Math.floor(Math.random() * 100) + 1;
+            ran=ran % 10;
+            switch(ran){
+                case 1:
+                    document.getElementById("the_tips").innerHTML = "文本3";
+                    break;
+                case 2:
+                    document.getElementById("the_tips").innerHTML = "文本2";
+                    break;
+                case 3:
+                    document.getElementById("the_tips").innerHTML = "文本3";
+                    break;
+                case 4:
+                    document.getElementById("the_tips").innerHTML = "文本4";
+                    break;
+    
+                case 5:
+                    document.getElementById("the_tips").innerHTML = "文本5";
+                    break;
+                case 6:
+                    document.getElementById("the_tips").innerHTML = "文本6";
+                    break;
+                case 7:
+                    document.getElementById("the_tips").innerHTML = "文本7";
+                    break;
+                case 8:
+                    document.getElementById("the_tips").innerHTML = "文本8";
+                    break;
+                case 9:
+                    document.getElementById("the_tips").innerHTML = "文本9";
+                    break;
+                case 0:
+                    document.getElementById("the_tips").innerHTML = "文本0";
+                    break;
+            } 
+        
+            
+        }
+        /*提示模块结束*/
+           //以下是延迟播放模块
+        // 确保文档加载完成后再执行以下代码
+    window.addEventListener('mousemove',function() {
+        // 设置延迟时间（以毫秒为单位），例如5秒就是5000毫秒
+    var delay = 1; // 立即执行！
+        // 使用setTimeout函数在指定的延迟后播放音频
+        setTimeout(function() {
+            var audio = document.getElementById('myAudio');
+            // 检查浏览器是否支持自动播放（某些浏览器可能需要用户交互才能播放音频）
+            if (audio.paused || audio.ended || !audio.currentTime) {
+            audio.play(); // 播放音频
+        }   }, delay);})  ;
+        //延迟播放模块结束</script>
+    <audio id="myAudio" preload="auto" loop>
+        <source src="Leshy's Theme.mp3" type="audio/mpeg">
+    </audio>
+    
+        <p id="shengyucards"></p>
+        <p id="game_target"></p>
+        <p id="the_time"></p>
+        <p id="used_time"></p>
+        <p id="the_plusplus"></p>
+        
+        
+        <div id="bigx">
+           <!--这里是大X的位置--> 
+           <h1 class="cen" id="big_x_position"></h1>
+        </div>
+        <div id="intarea">
+            <div class="int_card_a" id="the_a">
+                <h3 class="int_card" id="int_a"></h3>
+            </div>
+            <div class="int_card_b" id="the_b">
+                <h3 class="int_card" id="int_b"></h3>
+            </div>
+            <!--以上是两个对象？-->
+        </div>
+        
+        <div id="cardarea">
+        <div>
+            <img src="picture/empty.jpg" class="card" alt="你的浏览器无法显示......">
+        </div>
+        <div>
+            <img src="picture/empty.jpg" class="card" alt="你的浏览器无法显示......">
+        </div>
+        <div>
+            <img src="picture/empty.jpg" class="card" alt="你的浏览器无法显示......">
+        </div>
+        <div>
+            <img src="picture/empty.jpg" class="card" alt="你的浏览器无法显示......">
+        </div>
+        <div>
+            <img src="picture/empty.jpg" class="card" alt="你的浏览器无法显示......">
+        </div></div>
+        <!--这里，五张手牌的位置,手牌点击时会触发事件，在js中-->
+        <button class="cen_button " onclick="go()" id="b">next</button>
+        <div class="tips" id="the_tips"><!--这里插入的是操作提示--></div>
+
+
+    
+    <script>
+    
+    var audio_element=document.getElementById("myAudio");
+    //关卡的不同之处在于音乐，possibility,牌库数量，目标最小值，目标最大值。
+    switch(choose){
+        case 1:audio_element.src ="bgm/labour.mp3";xab=[0,1,1];possibility=[0,
+        0,5,5,5,5,
+        5,5,5,5,5,
+        5,5,0,0,5,
+        5,5,5,5,0,
+        0,20,0];console.log(possibility);all_card_num=30;target_x_min=100000;target_x_max=1000000;
+        need_time=1;game_time=120;time_trick=0;card_trick=0;//time_trick,card_trick非0即1
+            break;
+        case 2:audio_element.src = "bgm/solving1.mp3";
+            break;
+        case 3:audio_element.src = '';
+            break;
+        case 4:audio_element.src = '';
+            break;
+        case 5:audio_element.src = '';
+            break;
+        case 6:audio_element.src = '';
+            break;
+        case 7:audio_element.src = '';
+            break;
+        case 8:audio_element.src = '';
+            break;
+        case 9:audio_element.src = '';
+            break;
+    }//此处是判断关卡数,放上音频的src
+    document.getElementById("game_target").innerHTML = "目标区间：["+target_x_min+","+target_x_max+"]";
+    console.log("关卡开始!关卡数是"+choose+"possibilty是"+possibility);
+    </script>
+<script src="scriptback.js"></script>
+
+</body>
+</html>

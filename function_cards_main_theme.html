@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main_theme</title>
+    <link rel="stylesheet" type="text/css" href="use.css">
+    <!--在这里直接导入了use.css文件-->
+    <style type="text/css">
+        body{
+            background-image: url(R-C.png);
+        }
+    </style>
+</head>
+<body>
+    <script>
+        if (localStorage.count) {;} else {localStorage.setItem('count', "on");}
+        var numberToStore=0;
+        if (localStorage.complete1) {;} else {localStorage.setItem('complete1', numberToStore.toString());}
+        if (localStorage.complete2) {;} else {localStorage.setItem('complete2', numberToStore.toString());}
+        if (localStorage.complete3) {;} else {localStorage.setItem('complete3', numberToStore.toString());}
+        if (localStorage.complete4) {;} else {localStorage.setItem('complete4', numberToStore.toString());}
+        if (localStorage.complete5) {;} else {localStorage.setItem('complete5', numberToStore.toString());}
+        if (localStorage.complete6) {;} else {localStorage.setItem('complete6', numberToStore.toString());}
+        if (localStorage.complete7) {;} else {localStorage.setItem('complete7', numberToStore.toString());}
+        if (localStorage.complete8) {;} else {localStorage.setItem('complete8', numberToStore.toString());}
+        if (localStorage.complete9) {;} else {localStorage.setItem('complete9', numberToStore.toString());}
+        if (localStorage.fail1) {;} else {localStorage.setItem('fail1', numberToStore.toString());}
+        if (localStorage.fail2) {;} else {localStorage.setItem('fail2', numberToStore.toString());}
+        if (localStorage.fail3) {;} else {localStorage.setItem('fail3', numberToStore.toString());}
+        if (localStorage.fail4) {;} else {localStorage.setItem('fail4', numberToStore.toString());}
+        if (localStorage.fail5) {;} else {localStorage.setItem('fail5', numberToStore.toString());}
+        if (localStorage.fail6) {;} else {localStorage.setItem('fail6', numberToStore.toString());}
+        if (localStorage.fail7) {;} else {localStorage.setItem('fail7', numberToStore.toString());}
+        if (localStorage.fail8) {;} else {localStorage.setItem('fail8', numberToStore.toString());}
+        if (localStorage.fail9) {;} else {localStorage.setItem('fail9', numberToStore.toString());}
+        numberToStore = 99999999;
+        if (localStorage.time_complete1) {;} else {localStorage.setItem('time_complete1', numberToStore.toString());}
+        if (localStorage.time_complete2) {;} else {localStorage.setItem('time_complete2', numberToStore.toString());}
+        if (localStorage.time_complete3) {;} else {localStorage.setItem('time_complete3', numberToStore.toString());}
+        if (localStorage.time_complete4) {;} else {localStorage.setItem('time_complete4', numberToStore.toString());}
+        if (localStorage.time_complete5) {;} else {localStorage.setItem('time_complete5', numberToStore.toString());}
+        if (localStorage.time_complete6) {;} else {localStorage.setItem('time_complete6', numberToStore.toString());}
+        if (localStorage.time_complete7) {;} else {localStorage.setItem('time_complete7', numberToStore.toString());}
+        if (localStorage.time_complete8) {;} else {localStorage.setItem('time_complete8', numberToStore.toString());}
+        if (localStorage.time_complete9) {;} else {localStorage.setItem('time_complete9', numberToStore.toString());}
+    </script> 
+    
+   
+    <h1 align="center">标题</h1>
+    <form>
+        <label for="on">显示快速通关计时器:</label>
+        <input type="radio" id="radio_on" name="time_count" value="on">
+        <label for="on">是</label>
+        <input type="radio" id="radio_off" name="time_count" value="off">
+        <label for="off">否</label>
+        <button type="button" onclick="savecount()">确定(这不会影响快速通关时间的记录)</button>
+    </form>
+    <div id="title_div"><p class="indent">在这里打算写些别的</p></div>
+    
+    <ul id="little_right">
+        <li><p id="com_1"></p><button class="button " onclick="button_func(1)">1</button></li>
+        <li><p id="com_2"></p><button class="button " onclick="button_func(2)">2</button></li>
+        <li><p id="com_3"></p><button class="button " onclick="button_func(3)">3</button></li>
+        <li><p id="com_4"></p><button class="button " onclick="button_func(4)">4</button></li>
+        <li><p id="com_5"></p><button class="button " onclick="button_func(5)">5</button></li>
+        <li><p id="com_6"></p><button class="button " onclick="button_func(6)">6</button></li>
+        <li><p id="com_7"></p><button class="button " onclick="button_func(7)">7</button></li>
+        <li><p id="com_8"></p><button class="button " onclick="button_func(8)">8</button></li>
+        <li><p id="com_9"></p><button class="button " onclick="button_func(9)">9</button></li>
+    </ul>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <button class="button " id="del" onclick="del_front()">删除所有数据(警告)</button></p></li>
+    <script>
+        <!--在这里写js吧-->
+        var _complete = [99,0,0,0,0,0,0,0,0,0];
+        var _time_to_complete = [99,0,0,0,0,0,0,0,0,0];
+        var _fail = [0,0,0,0,0,0,0,0,0,0];
+        for(tl=1;tl<=9;tl++){
+            _complete[tl] = parseInt(localStorage.getItem("complete"+tl), 10);
+            _fail[tl] = parseInt(localStorage.getItem("fail"+tl), 10);
+            console.log(_complete[tl],_fail[tl]);
+            _time_to_complete[tl] = parseFloat(localStorage.getItem("time_complete"+tl), 10);
+            //_time_to_complete[tl] = _time_to_complete[tl].toFixed(3);
+            if(_complete[tl]==0){document.getElementById("com_"+tl).innerHTML = "未完成    总计失败："+_fail[tl];}//失败次数的功能也要加上
+            else{document.getElementById("com_"+tl).innerHTML = "已解决！最短用时："+_time_to_complete[tl].toFixed(3)+"s    总计失败："+_fail[tl];}
+        }
+        function savecount(){
+            var radios = document.getElementsByName('time_count');
+            for (var i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                localStorage.setItem('count', radios[i].value);
+                break;
+                }
+            }
+        }
+        
+        function button_func(chap_num){
+            
+            switch(chap_num){
+                case 1:window.location.href = "chapter/chapter1.html";break;
+                case 2: window.location.href = "chapter/chapter2.html";break;
+                case 3:window.location.href = "chapter/chapter3.html";break;
+                case 4: window.location.href = "chapter/chapter4.html";break;
+                case 5:window.location.href = "chapter/chapter5.html";break;
+                case 6:window.location.href = "chapter/chapter6.html";break;
+                case 7:window.location.href = "chapter/chapter7.html";break;
+                case 8:window.location.href = "chapter/chapter8.html";break;
+                case 9:window.location.href = "chapter/chapter9.html";break;
+            }
+            
+        }
+        function del_front(){
+            window.location.href = "del_all.html";
+            return;
+        }
+
+    </script>
+    
+    
+</body>
+</html>

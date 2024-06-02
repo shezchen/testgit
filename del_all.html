@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>删除存档</title>
+    <link rel="stylesheet" type="text/css" href="use.css">
+</head>
+<body>
+    <button class="cen_button"  onclick="re()">返回标题页</button>
+    <p><br/></p>
+    <p><br/></p>
+    <p><br/></p>
+    <p><br/></p>
+    <P><br/></P>
+    <p><br/></p>
+    <p style="color: red;" class="cen">你确定要删除所有数据吗？</p>
+    <button class="cen_button"  onclick="del()">确定删除所有数据</button>
+    <script>
+        function del(){
+            for(i=1;i<=9;i++){
+                localStorage.removeItem("complete"+i);
+                localStorage.removeItem("time_complete"+i);
+                localStorage.removeItem("fail"+i);
+            }
+            localStorage.removeItem("count");
+            alert("已删除!即将返回标题页......");
+            window.location.href = "function_cards_main_theme.html";
+        }
+        function re(){
+            window.location.href = "function_cards_main_theme.html";
+        }
+    </script>
+</body>
+</html>
