@@ -23,30 +23,17 @@ font-size: larger;margin-left: 40%;margin-right: 40%;width:20%;}
 .draggable {position: absolute;cursor: pointer; /* 提示用户可以拖动 */}
 #intarea {background-color: cornsilk;background-position: center;
     margin-left: 30%;margin-right: 30%;width:40%;height: 2.5cm;
-<<<<<<< HEAD
-    margin-top: 2cm;position: relative;z-index:1;}
-.int_card{color: darkblue;text-indent: 1em;}
-#the_a{position: relative;z-index:2;cursor:pointer;background-color:lightblue;
-    margin-left: 1cm;margin-top: 0.5cm;width: 5cm;height: 1.5cm;float: left;}
-#the_b{position: relative;z-index:2;cursor:pointer;background-color:lightcoral;
-    margin-right: 1cm;margin-top: 0.5cm;width: 5cm;height: 1.5cm;float: right;}
-=======
     margin-top: 1cm;position: relative;z-index:1;}
 .int_card{color: darkblue;text-indent: 1em;}
 #the_a{position: relative;z-index:2;cursor:pointer;background-color:lightblue;
     margin-left: 0cm;margin-top: 0.5cm;width: 6cm;height: 1.5cm;float: left;}
 #the_b{position: relative;z-index:2;cursor:pointer;background-color:lightcoral;
     margin-right: 0cm;margin-top: 0.5cm;width: 6cm;height: 1.5cm;float: right;}
->>>>>>> 0cf0b13 (2change)
 .card{position: relative;z-index:2;margin-left: 0.5cm;margin-top:1cm;width:6cm;height:7.5cm;
     background-image: url(picture/empty_copy.jpg);float: left;border-width: 0.2cm;
     border-color: aliceblue;border-style: solid}
 #cardarea{position: relative;background-color:lightsteelblue;
-<<<<<<< HEAD
-    background-position: center;margin-top: 3cm; width:36cm;height:10cm;z-index: 1;}
-=======
     background-position: center;margin-top: 1.5cm; width:36cm;height:10cm;z-index: 1;}
->>>>>>> 0cf0b13 (2change)
 /*#card1{position: relative;z-index:2;margin-left: 0.5cm;margin-top:1cm;width:4cm;height:5cm;;float: left;border-width: 0.2cm;border-color: aliceblue;border-style: solid;}
 #card2{position: relative;z-index:2;margin-left: 1cm;margin-top:1cm;width:4cm;height:5cm;background-image: url(picture/empty.jpg);float: left;border-width: 0.2cm;border-color: aliceblue;border-style: solid}
 #card3{position: relative;z-index:2;margin-left: 1cm;margin-top:1cm;width:4cm;height:5cm;background-image: url(picture/empty.jpg);float: left;border-width: 0.2cm;border-color: aliceblue;border-style: solid}
@@ -59,8 +46,4 @@ font-size: larger;margin-left: 40%;margin-right: 40%;width:20%;}
 #del{position: relative;margin-left: 10%;}
 #the_logo{color: black;}
 #the_plusplus{position: absolute;margin-left: 85%;margin-right: 0%;}
-<<<<<<< HEAD
-.the{color: deepskyblue;color: tomato;color: darkorchid;}
-=======
 .the{color: deepskyblue;color: tomato;color: darkorchid;color: darkgrey;}
->>>>>>> 0cf0b13 (2change)
