@@ -11,11 +11,8 @@ var what_card = [0,0,0,0,0];//这是在说每一处目前放的是什么牌，0�
 var best_time_to_complete = parseInt(localStorage.getItem('time_complete'+choose), 10);
 var _fail = 0;
 _fail = parseInt(localStorage.getItem("fail"+choose), 10);
-<<<<<<< HEAD
-=======
 _fail=_fail+1;
 localStorage.setItem('fail'+choose, _fail.toString());
->>>>>>> 0cf0b13 (2change)
 in_card_num=all_card_num;
 document.getElementById("b").addEventListener("click",go("click"));
 document.getElementById("bigx").addEventListener("click",x_is_chosen);
@@ -200,15 +197,9 @@ function b_is_chosen_with(night){
     return;
 }*/
 function time_plus_1ms(){
-<<<<<<< HEAD
-    time_now = time_now+0.001;
-    //time_now=Math.round(time_now);
-    document.getElementById("used_time").innerHTML = "快速通关计时器:"+time_now.toFixed(3)+"s";
-=======
     time_now = time_now+0.1;
     //time_now=Math.round(time_now);
     document.getElementById("used_time").innerHTML = "快速通关计时器:"+time_now.toFixed(1)+"s";
->>>>>>> 0cf0b13 (2change)
     return;
 }
 
@@ -224,11 +215,7 @@ function drop(po){
 //以下为每回合起始摸牌函数
 time_now = 0;
 function go(){
-<<<<<<< HEAD
-    setInterval(time_plus_1ms,1);
-=======
     setInterval(time_plus_1ms,100);
->>>>>>> 0cf0b13 (2change)
     if(counter=="on"){
         console.log("计时器显示");
     }else{
@@ -255,11 +242,7 @@ function go(){
             localStorage.setItem('complete'+choose, "1");
             localStorage.setItem('time_complete'+choose, time_now.toString());
             document.getElementById("used_time").innerHTML = "你的时间已保存。";
-<<<<<<< HEAD
-            alert("目标已达成，剩余"+in_card_num+"张牌。"+"达成新纪录!"+ time_now.toFixed(3)+"s");
-=======
             alert("目标已达成，剩余"+in_card_num+"张牌。"+"达成新纪录!"+ time_now.toFixed(1)+"s");
->>>>>>> 0cf0b13 (2change)
             
             window.location.href = "function_cards_main_theme.html";
             now.stop;
@@ -288,15 +271,9 @@ function go(){
 }
 function have_a_card(pos){
     if(in_card_num==0){
-<<<<<<< HEAD
-        _fail=_fail+1;
-        localStorage.setItem('fail'+choose, _fail.toString());
-        _fail=_fail-1;
-=======
         //_fail=_fail+1;
         //localStorage.setItem('fail'+choose, _fail.toString());
         //_fail=_fail-1;
->>>>>>> 0cf0b13 (2change)
         alert("牌库已经空了！即将返回主页面。");
         window.location.href = "function_cards_main_theme.html";
         now.stop;
@@ -638,11 +615,7 @@ function refresh_time(){
 setInterval(change_back_color,100);
 function change_back_color(){
     if(blue_type==0 && red_type==0){document.getElementById("the_logo").style.color = "rgb(0,0,0)";
-<<<<<<< HEAD
-    document.getElementById("cardarea").style.backgroundColor = "rgb(0,0,0)";
-=======
     document.getElementById("cardarea").style.backgroundColor = "rgb(169,169,169)";
->>>>>>> 0cf0b13 (2change)
     }
     if(blue_type==1 && red_type==0){document.getElementById("the_logo").style.color = "rgb(0,191,255)";
     document.getElementById("cardarea").style.backgroundColor = "rgb(0,191,255)";

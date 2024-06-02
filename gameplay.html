@@ -100,22 +100,12 @@
         }
         /*提示模块结束*/
            //以下是延迟播放模块
-<<<<<<< HEAD
-        // 确保文档加载完成后再执行以下代码
-    window.addEventListener('mousemove',function() {
-        // 设置延迟时间（以毫秒为单位），例如5秒就是5000毫秒
-=======
     window.addEventListener('mousemove',function() {
         // 设置延迟时间（以毫秒为单位）
->>>>>>> 0cf0b13 (2change)
     var delay = 1; // 立即执行！
         // 使用setTimeout函数在指定的延迟后播放音频
         setTimeout(function() {
             var audio = document.getElementById('myAudio');
-<<<<<<< HEAD
-            // 检查浏览器是否支持自动播放（某些浏览器可能需要用户交互才能播放音频）
-=======
->>>>>>> 0cf0b13 (2change)
             if (audio.paused || audio.ended || !audio.currentTime) {
             audio.play(); // 播放音频
         }   }, delay);})  ;
@@ -173,18 +163,6 @@
     //关卡的不同之处在于音乐，possibility,牌库数量，目标最小值，目标最大值。
     switch(choose){
         case 1:audio_element.src ="bgm/labour.mp3";xab=[0,1,1];possibility=[0,
-<<<<<<< HEAD
-        0,5,5,5,5,
-        5,5,5,5,5,
-        5,5,0,0,5,
-        5,5,5,5,0,
-        0,20,0];console.log(possibility);all_card_num=30;target_x_min=100000;target_x_max=1000000;
-        need_time=1;game_time=120;time_trick=0;card_trick=0;//time_trick,card_trick非0即1
-            break;
-        case 2:audio_element.src = "bgm/solving1.mp3";
-            break;
-        case 3:audio_element.src = '';
-=======
         5,5,0,5,5,
         10,5,5,5,0,
         15,15,5,0,5,
@@ -210,7 +188,6 @@
         0,20,0,0,0,
         0,0,0];console.log(possibility);all_card_num=30;target_x_min=500000;target_x_max=1000000;
         need_time=1;game_time=120;time_trick=0;card_trick=0;//time_trick,card_trick非0即1
->>>>>>> 0cf0b13 (2change)
             break;
         case 4:audio_element.src = '';
             break;
