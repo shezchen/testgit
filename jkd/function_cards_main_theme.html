@@ -90,7 +90,7 @@
             _time_to_complete[tl] = parseFloat(localStorage.getItem("time_complete"+tl), 10);
             //_time_to_complete[tl] = _time_to_complete[tl].toFixed(3);
             if(_complete[tl]==0){document.getElementById("com_"+tl).innerHTML = "未完成    总计尝试："+_fail[tl];}//尝试次数的功能也要加上
-            else{document.getElementById("com_"+tl).innerHTML = "已解决！最短用时："+_time_to_complete[tl].toFixed(3)+"s    总计尝试："+_fail[tl];}
+            else{document.getElementById("com_"+tl).innerHTML = "已解决！最短用时："+_time_to_complete[tl].toFixed(1)+"s    总计尝试："+_fail[tl];}
         }
         function savecount(){
             var radios = document.getElementsByName('time_count');
