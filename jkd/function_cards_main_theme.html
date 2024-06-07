@@ -106,14 +106,14 @@
             
             switch(chap_num){
                 case 1:window.location.href = "chapter/chapter1.html";break;
-                case 2: window.location.href = "chapter/chapter2.html";break;
-                case 3:window.location.href = "chapter/chapter3.html";break;
-                case 4: window.location.href = "chapter/chapter4.html";break;
-                case 5:window.location.href = "chapter/chapter5.html";break;
-                case 6:window.location.href = "chapter/chapter6.html";break;
-                case 7:window.location.href = "chapter/chapter7.html";break;
-                case 8:window.location.href = "chapter/chapter8.html";break;
-                case 9:window.location.href = "chapter/chapter9.html";break;
+                case 2:  if(parseInt(localStorage.getItem("complete1"), 10)==1){window.location.href = "chapter/chapter2.html";}else{alert("请先完成前面的关卡！");}break;
+                case 3:  if(parseInt(localStorage.getItem("complete2"), 10)==1){window.location.href = "chapter/chapter3.html";}else{alert("请先完成前面的关卡！");}break;
+                case 4:  if(parseInt(localStorage.getItem("complete3"), 10)==1){window.location.href = "chapter/chapter4.html";}else{alert("请先完成前面的关卡！");}break;
+                case 5:  if(parseInt(localStorage.getItem("complete4"), 10)==1){window.location.href = "chapter/chapter5.html";}else{alert("请先完成前面的关卡！");}break;
+                case 6:  if(parseInt(localStorage.getItem("complete5"), 10)==1){window.location.href = "chapter/chapter6.html";}else{alert("请先完成前面的关卡！");}break;
+                case 7:  if(parseInt(localStorage.getItem("complete6"), 10)==1){window.location.href = "chapter/chapter7.html";}else{alert("请先完成前面的关卡！");}break;
+                case 8:  if(parseInt(localStorage.getItem("complete7"), 10)==1){window.location.href = "chapter/chapter8.html";}else{alert("请先完成前面的关卡！");}break;
+                case 9:  if(parseInt(localStorage.getItem("complete1"), 10)==1){window.location.href = "chapter/chapter9.html";}else{alert("这是最后一关了，所以还是请先完成前面的关卡！");}break;
             }
             
         }

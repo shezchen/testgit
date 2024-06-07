@@ -106,13 +106,29 @@
         // 使用setTimeout函数在指定的延迟后播放音频
         setTimeout(function() {
             var audio = document.getElementById('myAudio');
+            audio.volume = 0.3;
             if (audio.paused || audio.ended || !audio.currentTime) {
             audio.play(); // 播放音频
         }   }, delay);})  ;
         //延迟播放模块结束</script>
-    <audio id="myAudio" preload="auto" loop>
+    <audio id="myAudio" preload="auto" loop volume="0.1">
         <source src="Leshy's Theme.mp3" type="audio/mpeg">
     </audio>
+
+
+
+    <audio id="x_plus" src="bgm/x_plus.mp3" preload="auto"></audio>
+    <audio id="x_multiply" src="bgm/x_multiply.mp3" preload="auto"></audio>
+    <audio id="plus" src="bgm/bigger.mp3" preload="auto"></audio>
+    <audio id="multiply" src="bgm/multiply.mp3" preload="auto"></audio>
+    <audio id="error_happen" src="bgm/error.mp3" preload="auto"></audio>
+    <audio id="re_blue" src="bgm/blue_re.mp3" preload="auto"></audio>
+    <audio id="re_red" src="bgm/red_re.mp3" preload="auto"></audio>
+    <audio id="win" src="bgm/win.mp3" preload="auto"></audio>
+
+
+
+
     
         <p id="shengyucards"></p>
         <p id="game_target"></p>
@@ -162,45 +178,74 @@
     var audio_element=document.getElementById("myAudio");
     //关卡的不同之处在于音乐，possibility,牌库数量，目标最小值，目标最大值。
     switch(choose){
-        case 1:audio_element.src ="bgm/labour.mp3";xab=[0,1,1];possibility=[0,
-        5,5,0,5,5,
+        case 1:audio_element.src ="bgm/chapter1bgm.mp3";xab=[0,1,1];possibility=[0,
+        10,10,0,10,10,
         10,5,5,5,0,
-        15,15,5,0,5,
-        5,5,0,5,0,
+        15,15,5,0,0,
+        0,0,0,0,0,
         0,0,0,0,0,
         0,0,0];console.log(possibility);all_card_num=30;target_x_min=100000;target_x_max=1000000;
-        need_time=1;game_time=120;time_trick=0;card_trick=0;//time_trick,card_trick非0即1
+        need_time=0;game_time=120;time_trick=0;card_trick=0;//time_trick,card_trick非0即1
             break;
-        case 2:audio_element.src = "bgm/solving1.mp3";xab=[1000,1,1];possibility=[0,
-        5,5,0,5,5,
-        5,5,0,0,0,
-        10,10,5,0,5,
-        5,5,10,10,10,
-        5,0,0,0,0,
+
+            /* 这是第一关，拥有一些最为基础的卡牌，没有时间限制，希望新手能通过这个小关卡学习基本机制 */
+
+        case 2:audio_element.src = "bgm/solving3.mp3";xab=[1000,1,1];possibility=[0,
+        10,10,0,5,5,
+        5,5,5,5,0,
+        10,10,5,0,0,
+        0,0,0,0,15,
+        15,0,0,0,0,
         0,0,0];console.log(possibility);all_card_num=30;target_x_min=-1000;target_x_max=-1;
-        need_time=1;game_time=120;time_trick=0;card_trick=0;//time_trick,card_trick非0即1
+        need_time=game_time=120;time_trick=0;card_trick=0;//time_trick,card_trick非0即1
             break;
-        case 3:audio_element.src = 'bgm/solving3.mp3';xab=[0,1,1];possibility=[0,
-        15,15,0,5,5,
-        0,0,0,0,0,
-        10,10,0,0,5,
-        5,5,0,5,0,
-        0,20,0,0,0,
-        0,0,0];console.log(possibility);all_card_num=30;target_x_min=500000;target_x_max=1000000;
-        need_time=1;game_time=120;time_trick=0;card_trick=0;//time_trick,card_trick非0即1
+
+            /* 这是第二关，引入蓝对号、红叉号逆转机制，使x变为负数才可通过，没有时间限制 */
+
+
+        case 3:audio_element.src = 'bgm/labour.mp3';xab=[0,10,-100];possibility=[0,
+        10,10,0,5,5,
+        5,5,5,5,5,
+        5,5,5,0,5,
+        5,5,0,5,5,
+        5,0,0,0,0,
+        0,0,0];console.log(possibility);all_card_num=40;target_x_min=500000;target_x_max=1000000;
+        need_time=0;game_time=120;time_trick=0;card_trick=0;//time_trick,card_trick非0即1
             break;
-        case 4:audio_element.src = '';
+
+            /* 这是第三关，引入nextnext等更多功能牌，还是没有时间限制 */
+
+
+        case 4:audio_element.src = "bgm/chapter4bgm.mp3";
             break;
-        case 5:audio_element.src = '';
+
+            /*这是第四关，引入所有剩下的卡牌，出现时间限制，强调增数*/
+
+        case 5:audio_element.src = "bgm/chapter5bgm.mp3";
             break;
-        case 6:audio_element.src = '';
+
+            /* 这是第5关，强调精确地将x的值送入一个很小的区间 */
+
+        case 6:audio_element.src = "bgm/forshaken_city.mp3";
             break;
+
+            /*这是第6关，出现大量1，2，plusplus，有时间限制*/
+
         case 7:audio_element.src = '';
             break;
+
+            /* 引入time_trick */
+
         case 8:audio_element.src = '';
             break;
+
+            /* 引入card_trick,time_trick */
+
         case 9:audio_element.src = '';
             break;
+
+            /*函数牌与你，infinity*/
+
     }//此处是判断关卡数,放上音频的src
     document.getElementById("game_target").innerHTML = "目标区间：["+target_x_min+","+target_x_max+"]";
     console.log("关卡开始!关卡数是"+choose+"possibilty是"+possibility);

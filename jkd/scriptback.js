@@ -34,7 +34,7 @@ for(let ii=0;ii<5;ii++){
         if(what_card[ii]==13||what_card[ii]==15||what_card[ii]==16||what_card[ii]==17||
             what_card[ii]==18||what_card[ii]==20||what_card[ii]==21||what_card[ii]==22||what_card[ii]==24) {
             doit=do_it_spe(what_card[ii],ii);//do_it为执行卡牌的函数。
-            if(doit==0){drop(ii);}else{alert("这张卡牌需要一个对象！");}
+            if(doit==0){drop(ii);}else{document.getElementById('error_happen').play();alert("这张卡牌需要一个对象！");}
         }
     }
     //c[i].src = "picture/empty.png";
@@ -94,7 +94,8 @@ function a_is_chosen(){
             console.log("a_is_chosen:return的值是"+doit);
             
             if(doit==0){drop(i);}else{
-                if(what_card[i]!=0){alert("这张卡牌不能以a为对象!");}else{alert("你这是在做什么？");}
+                if(what_card[i]!=0){document.getElementById('error_happen').play();alert("这张卡牌不能以a为对象!");}
+                else{document.getElementById('error_happen').play();alert("你这是在做什么？");}
             }
             break;
         }
@@ -134,7 +135,8 @@ function b_is_chosen(){
             if(together==1){console.log("在b_is_chosen处,together==1");the_chance=chance;together=0;don_t=1;
             a_is_chosen();don_t=0;chance=the_chance;}
             if(doit==0){drop(i);}else{
-                if(what_card[i]!=0){alert("这张卡牌不能以b为对象!");}else{alert("你这是在做什么？");}
+                if(what_card[i]!=0){document.getElementById('error_happen').play();alert("这张卡牌不能以b为对象!");}
+                else{document.getElementById('error_happen').play();alert("你这是在做什么？");}
             }
             break;
         }
@@ -148,8 +150,10 @@ function x_is_chosen(){
         if(choose_card[i]!=0){
             if(what_card[i]==11){
                 if(blue_type==0){
+                    document.getElementById('x_plus').play();
                     xab[0]=xab[0]+(xab[1]+plusplus);
                 }else{
+                    document.getElementById('x_plus').play();
                     xab[0]=xab[0]-(xab[1]+plusplus);
                 }
                 drop(i);
@@ -157,8 +161,10 @@ function x_is_chosen(){
             }
             if(what_card[i]==23){
                 if(blue_type==0){
+                    document.getElementById('x_plus').play();
                     xab[0]=xab[0]-(xab[1]+plusplus);
                 }else{
+                    document.getElementById('x_plus').play();
                     xab[0]=xab[0]+(xab[1]+plusplus);
                 }
                 drop(i);
@@ -166,8 +172,10 @@ function x_is_chosen(){
             }
             if(what_card[i]==12){
                 if(red_type==0){
+                    document.getElementById('x_multiply').play();
                     xab[0]=xab[0]*(xab[2]+plusplus);
                 }else{
+                    document.getElementById('x_multiply').play();
                     xab[0]=xab[0]/(xab[2]+plusplus);
                 }
                 drop(i);
@@ -175,15 +183,19 @@ function x_is_chosen(){
             }
             if(what_card[i]==24){
                 if(red_type==0){
+                    document.getElementById('x_multiply').play();
                     xab[0]=xab[0]/(xab[2]+plusplus);
                 }else{
+                    document.getElementById('x_multiply').play();
                     xab[0]=xab[0]*(xab[2]+plusplus);
                 }
                 drop(i);
                 break;
             }
-            if(what_card[i]!=0){alert("这张卡牌不能以x作为对象!");}
-            if(what_card[i]==0){alert("你这是在做什么？");}
+            if(what_card[i]!=0){document.getElementById('error_happen').play();
+            alert("这张卡牌不能以x作为对象!");}
+            if(what_card[i]==0){document.getElementById('error_happen').play();
+            alert("你这是在做什么？");}
         }
     }
     return;
@@ -236,6 +248,7 @@ function go(){
     c[3].style.borderColor = "aliceblue";
     c[4].style.borderColor = "aliceblue";
     if(xab[0]>=target_x_min && xab[0]<=target_x_max){
+        document.getElementById('win').play();
         console.log(time_now);
         console.log(best_time_to_complete);
         if(time_now<best_time_to_complete){
@@ -396,16 +409,16 @@ function do_it(card_code,object,get_i){
     if(card_code==1){
         console.log("正在发挥作用的是"+card_code);
             for(ad=chance;ad>0;ad--){
-        if(blue_type==0){(xab[object])=(xab[object])+(1+plusplus);}
-        if(blue_type==1){(xab[object])=(xab[object])-(1+plusplus);}}
+        if(blue_type==0){(xab[object])=(xab[object])+(1+plusplus);document.getElementById('plus').play();}
+        if(blue_type==1){(xab[object])=(xab[object])-(1+plusplus);document.getElementById('plus').play();}}
         chance = 1;
         return 0;
     }
     if(card_code==2){
         console.log("正在发挥作用的是"+card_code);
             for(ad=chance;ad>0;ad--){
-        if( red_type==0 ){(xab[object])=((xab[object])*(2+plusplus));}
-        if(red_type==1){(xab[object])=((xab[object])/(2+plusplus));}}
+        if( red_type==0 ){(xab[object])=((xab[object])*(2+plusplus));document.getElementById('multiply').play();}
+        if(red_type==1){(xab[object])=((xab[object])/(2+plusplus));document.getElementById('multiply').play();}}
         chance=1;
         return 0;
     }
@@ -421,43 +434,43 @@ function do_it(card_code,object,get_i){
     if(card_code==4){console.log("正在发挥作用的是"+card_code);
             for(ad=chance;ad>0;ad--){
         console.log("ad是"+ad);
-        if(blue_type==0){(xab[object])=(xab[object])+(3+plusplus);}
-        if(blue_type==1){(xab[object])=(xab[object])-(3+plusplus);}}
+        if(blue_type==0){(xab[object])=(xab[object])+(3+plusplus);document.getElementById('plus').play();}
+        if(blue_type==1){(xab[object])=(xab[object])-(3+plusplus);document.getElementById('plus').play();}}
         chance=1;
         return 0;
     }
     if(card_code==5){console.log("正在发挥作用的是"+card_code);
             for(ad=chance;ad>0;ad--){
-        if(red_type==0){(xab[object])=((xab[object])*(3+plusplus));}
-        if(red_type==1){(xab[object])=((xab[object])/(3+plusplus));}}
+        if(red_type==0){(xab[object])=((xab[object])*(3+plusplus));document.getElementById('multiply').play();}
+        if(red_type==1){(xab[object])=((xab[object])/(3+plusplus));document.getElementById('multiply').play();}}
         chance=1;
         return 0;
     }
     if(card_code==6){console.log("正在发挥作用的是"+card_code);
             for(ad=chance;ad>0;ad--){
-        if(blue_type==0){(xab[object])=(xab[object])+(5+plusplus);}
-        if(blue_type==1){(xab[object])=(xab[object])-(5+plusplus);}}
+        if(blue_type==0){(xab[object])=(xab[object])+(5+plusplus);document.getElementById('plus').play();}
+        if(blue_type==1){(xab[object])=(xab[object])-(5+plusplus);document.getElementById('plus').play();}}
         chance=1;
         return 0;
     }
     if(card_code==7){console.log("正在发挥作用的是"+card_code);
             for(ad=chance;ad>0;ad--){
-        if(red_type==0){(xab[object])=((xab[object])*(5+plusplus));}
-        if(red_type==1){(xab[object])=((xab[object])/(5+plusplus));}}
+        if(red_type==0){(xab[object])=((xab[object])*(5+plusplus));document.getElementById('multiply').play();}
+        if(red_type==1){(xab[object])=((xab[object])/(5+plusplus));document.getElementById('multiply').play();}}
         chance=1;
         return 0;
     }
     if(card_code==8){console.log("正在发挥作用的是"+card_code);
             for(ad=chance;ad>0;ad--){
-        if(blue_type==0){(xab[object])=(xab[object])+(10+plusplus);}
-        if(blue_type==1){(xab[object])=(xab[object])-(10+plusplus);}}
+        if(blue_type==0){(xab[object])=(xab[object])+(10+plusplus);document.getElementById('plus').play();}
+        if(blue_type==1){(xab[object])=(xab[object])-(10+plusplus);document.getElementById('plus').play();}}
         chance=1;
         return 0;
     }
     if(card_code==9){console.log("正在发挥作用的是"+card_code);
             for(ad=chance;ad>0;ad--){
-        if(red_type==0){(xab[object])=((xab[object])*(10+plusplus));}
-        if(red_type==1){(xab[object])=((xab[object])/(10+plusplus));}}
+        if(red_type==0){(xab[object])=((xab[object])*(10+plusplus));document.getElementById('multiply').play();}
+        if(red_type==1){(xab[object])=((xab[object])/(10+plusplus));document.getElementById('multiply').play();}}
         chance=1;
         return 0;
     }
@@ -469,17 +482,17 @@ function do_it(card_code,object,get_i){
     }
     if(card_code==11){console.log("正在发挥作用的是"+card_code);
             for(ad=chance;ad>0;ad--){
-        if(blue_type==0){(xab[object])=(xab[object])+(xab[1]+plusplus);}
-        if(blue_type==1){(xab[object])=(xab[object])-(xab[1]+plusplus);}}
+        if(blue_type==0){(xab[object])=(xab[object])+(xab[1]+plusplus);document.getElementById('plus').play();}
+        if(blue_type==1){(xab[object])=(xab[object])-(xab[1]+plusplus);document.getElementById('plus').play();}}
         chance=1;return 0;}
     if(card_code==12){console.log("正在发挥作用的是"+card_code);
             for(ad=chance;ad>0;ad--){
-        if(red_type==0){(xab[object])=((xab[object])*(xab[2]+plusplus));}
-        if(red_type==1){(xab[object])=((xab[object])/(xab[2]+plusplus));}}
+        if(red_type==0){(xab[object])=((xab[object])*(xab[2]+plusplus));document.getElementById('multiply').play();}
+        if(red_type==1){(xab[object])=((xab[object])/(xab[2]+plusplus));document.getElementById('multiply').play();}}
         chance=1;return 0;}
     if(card_code==13){return 1;}
     if(card_code==14){
-        if(together==1){alert("对于这张卡牌,to:不起作用。");}
+        if(together==1){document.getElementById('error_happen').play();alert("对于这张卡牌,to:不起作用。");}
         drop(get_i);don_t=1;
         you_have_fill(object);//1或2
         chance=1;
@@ -489,10 +502,16 @@ function do_it(card_code,object,get_i){
     if(card_code==16){return 1;}
     if(card_code==17){return 1;}
     if(card_code==18){return 1;}
-    if(card_code==19){console.log("正在发挥作用的是"+card_code);
-            for(ad=chance;ad>0;ad--){
-        need_3=(xab[object]);
-        for(q=1;q<2+(plusplus);q++){(xab[object])=((xab[object])*need_3);}}
+    if(card_code==19){
+        console.log("正在发挥作用的是"+card_code);
+        for(ad=chance;ad>0;ad--){
+            document.getElementById('multiply').play();
+            need_3=xab[object];
+            for(q=1;q<2+(plusplus);q++){
+                (xab[object])=((xab[object])*need_3);
+            }
+            //这里的确是把plusplus也加入进来了...相当激进了
+        }
         chance=1;
         return 0;
     }
@@ -501,13 +520,13 @@ function do_it(card_code,object,get_i){
     if(card_code==22){return 1;}
     if(card_code==23){console.log("正在发挥作用的是"+card_code);
             for(ad=chance;ad>0;ad--){
-        if(blue_type==0){(xab[object])=(xab[object])-(xab[1]+plusplus);}
-        if(blue_type==1){(xab[object])=(xab[object])+(xab[1]+plusplus);}}
+        if(blue_type==0){(xab[object])=(xab[object])-(xab[1]+plusplus);document.getElementById('plus').play();}
+        if(blue_type==1){(xab[object])=(xab[object])+(xab[1]+plusplus);document.getElementById('plus').play();}}
         chance=1;return 0;}
     if(card_code==24){console.log("正在发挥作用的是"+card_code);
         for(ad=chance;ad>0;ad--){
-    if(red_type==0){(xab[object])=((xab[object])/(xab[2]+plusplus));}
-    if(red_type==1){(xab[object])=((xab[object])*(xab[2]+plusplus));}}
+    if(red_type==0){(xab[object])=((xab[object])/(xab[2]+plusplus));document.getElementById('multiply').play();}
+    if(red_type==1){(xab[object])=((xab[object])*(xab[2]+plusplus));document.getElementById('multiply').play();}}
     chance=1;return 0;}
     if(card_code==25){
         if(object==1){xab[1]=xab[0];}
@@ -590,16 +609,26 @@ function do_it_spe(card_code,get_the_position){
 
 function reverse_blue(){
     console.log("blue属性反转");
-    if(blue_type==0){blue_type=1;}
+    if(blue_type==0){
+        document.getElementById('re_blue').play();
+        blue_type=1;}
     else{blue_type=0;}
-    if(together==1){together = 0;reverse_red();}
+    if(together==1){
+        document.getElementById('re_red').play();
+        together = 0;
+        reverse_red();}
     return;
 }
 function reverse_red(){
     console.log("red属性反转");
-    if(red_type==0){red_type=1;}
+    if(red_type==0){
+        document.getElementById('re_red').play();
+        red_type=1;}
     else{red_type=0;}
-    if(together==1){together = 0;reverse_blue();}
+    if(together==1){
+        document.getElementById('re_blue').play();
+        together = 0;
+        reverse_blue();}
     return;
 }
 
