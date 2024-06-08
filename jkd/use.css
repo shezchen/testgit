@@ -41,9 +41,10 @@ font-size: larger;margin-left: 40%;margin-right: 40%;width:20%;}
 #card5{position: relative;z-index:2;margin-left: 1cm;margin-top:1cm;width:4cm;height:5cm;background-image: url(picture/empty.jpg);float: left;border-width: 0.2cm;border-color: aliceblue;border-style: solid}
 */
 #shengyucards{position: absolute;margin-top: 0.5cm;margin-left: 0;}
-#title_div{position: absolute;margin-top: 4cm;width: 7cm;margin-left: 70%;}
+#title_div{position: absolute;margin-top: 3.5cm;width: 7cm;margin-left: 70%;}
 #little_right{position: relative;margin-left: 10%;}
 #del{position: relative;margin-left: 10%;}
 #the_logo{color: black;}
 #the_plusplus{position: absolute;margin-left: 85%;margin-right: 0%;}
 .the{color: deepskyblue;color: tomato;color: darkorchid;color: darkgrey;}
+#trap{cursor:pointer;}

@@ -3,7 +3,7 @@
 //var c ={c1:document.getElementById("card1"),c2:document.getElementById("card2"),
 //c3:document.getElementById("card3"),c4:document.getElementById("card4"),c5:document.getElementById("card5")}
 var c = document.getElementsByClassName("card");
-var need_1 =0,need_2=0,need_3=0,need_4=0,chance=1,quit=0,together=0,doit=0,don_t=0,need_5=0,the_chance=0,need_6=0;
+var need_1 =0,need_2=0,need_3=0,need_4=0,chance=1,quit=0,together=0,doit=0,don_t=0,need_5=0,the_chance=0,need_6=0,need_7=1;
 var time_now=0;
 var fail=0;
 var choose_card = [0,0,0,0,0];
@@ -46,7 +46,7 @@ setInterval (wrong,5000);
 setInterval (genxinshuliang,100);
 
 function genxinshuliang(){
-    document.getElementById("shengyucards").innerHTML = "牌库中剩余卡牌："+in_card_num+"/"+all_card_num;
+    document.getElementById("shengyucards").innerHTML = "牌库中剩余卡牌："+in_card_num.toFixed(0)+"/"+all_card_num;
     
 }
 function wrong(){
@@ -227,7 +227,10 @@ function drop(po){
 //以下为每回合起始摸牌函数
 time_now = 0;
 function go(){
-    setInterval(time_plus_1ms,100);
+    if(need_7==1){need_7=0;return;}
+    if(time_now==0){setInterval(time_plus_1ms,100);}
+    //if(time_trick==1){plusplus+=1;}
+    
     if(counter=="on"){
         console.log("计时器显示");
     }else{
@@ -283,6 +286,7 @@ function go(){
     return;
 }
 function have_a_card(pos){
+    if(time_trick==1){plusplus+=1;}
     if(in_card_num==0){
         //_fail=_fail+1;
         //localStorage.setItem('fail'+choose, _fail.toString());
@@ -298,7 +302,7 @@ function have_a_card(pos){
     for(w=1;w<=25;w++){
         if(need_1>need_2 && need_1<=need_2+possibility[w]){c[pos].src = "picture/"+w+".png";what_card[pos]=w;
         if(card_trick==0){in_card_num=in_card_num-1;}
-        if(card_trick==1){in_card_num=in_card_num-(1+plusplus);}
+        if(card_trick==1){in_card_num=in_card_num-(1+plusplus/5);}
         
         
         console.log("有图片被改变了,抽到了"+w);break;}
@@ -504,13 +508,12 @@ function do_it(card_code,object,get_i){
     if(card_code==18){return 1;}
     if(card_code==19){
         console.log("正在发挥作用的是"+card_code);
+        need_3=xab[object];
         for(ad=chance;ad>0;ad--){
-            document.getElementById('multiply').play();
-            need_3=xab[object];
-            for(q=1;q<2+(plusplus);q++){
-                (xab[object])=((xab[object])*need_3);
-            }
-            //这里的确是把plusplus也加入进来了...相当激进了
+            document.getElementById('pow').play();
+            xab[object]=(xab[object])*need_3;
+            
+            //最后还是决定不要加plusplus了，太不稳定了
         }
         chance=1;
         return 0;
@@ -558,7 +561,7 @@ function do_it_spe(card_code,get_the_position){
     if(card_code==15){//15号牌是chance+1
         console.log("正在发挥作用的是"+card_code);
             for(ad=chance;ad>0;ad--){
-        chance=chance+(1+plusplus);
+        chance=chance+1;
         }
         return 0;
         
@@ -634,11 +637,11 @@ function reverse_red(){
 
 function refresh_time(){
     need_6 = 1;
-    if(time_trick==1){need_6 = 1 + plusplus;}
+    if(time_trick==1){need_6 = 1 + plusplus*0.2;}
     game_time=game_time-need_6;
     if(game_time<=0 && fail==0){fail=1;_fail=_fail+1;
         localStorage.setItem('fail'+choose, _fail.toString());_fail=_fail-1;alert("时间耗尽!即将返回标题页面......");window.location.href = "function_cards_main_theme.html";now.stop;}
-    document.getElementById("the_time").innerHTML = "剩余时间：" + game_time;
+    document.getElementById("the_time").innerHTML = "剩余时间：" + game_time.toFixed(1);
 }
 
 setInterval(change_back_color,100);

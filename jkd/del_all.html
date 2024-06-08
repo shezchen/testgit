@@ -16,6 +16,7 @@
     <p><br/></p>
     <p style="color: red;" class="cen">你确定要删除所有数据吗？</p>
     <button class="cen_button"  onclick="del()">确定删除所有数据</button>
+    <button onclick="unlock()" class="unlock"></button>
     <script>
         function del(){
             for(i=1;i<=9;i++){
@@ -26,6 +27,17 @@
             localStorage.removeItem("count");
             alert("已删除!即将返回标题页......");
             window.location.href = "function_cards_main_theme.html";
+        }
+        function unlock(){
+            localStorage.setItem('complete1', 1);
+            localStorage.setItem('complete2', 1);
+            localStorage.setItem('complete3', 1);
+            localStorage.setItem('complete4', 1);
+            localStorage.setItem('complete5', 1);
+            localStorage.setItem('complete6', 1);
+            localStorage.setItem('complete7', 1);
+            localStorage.setItem('complete8', 1);
+            localStorage.setItem('complete9', 1);
         }
         function re(){
             window.location.href = "function_cards_main_theme.html";

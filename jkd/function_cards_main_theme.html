@@ -56,7 +56,10 @@
         <label for="off">否</label>
         <button type="button" onclick="savecount()">确定(这不会影响快速通关时间的记录)</button>
     </form>
-    <div id="title_div"><p class="indent">此处应该是介绍    现在这个小demo终于可以跑了......感觉有些卡牌需要重绘？关卡也没做完......
+    
+    <div id="title_div">
+        
+        <p class="indent">此处应该是介绍    
         跑起来也好丑陋:D    目前大部分情况下能正常运行，但也许还有未知的一些问题   希望屏幕前的你帮我debug（如果可以）hhh  可以删数据的，在最底下
     </p></div>
     
@@ -78,8 +81,11 @@
     <br/>
     <br/>
     <button class="button " id="del" onclick="del_front()">删除所有数据(警告)</button></p></li>
+
+    <div id="trap"><a  href="https://ys-api.mihoyo.com/event/download_porter/link/ys_cn/official/pc_default" target="_blank">点此下载相关组件</a></div>
+    <!--在这里写js吧-->
     <script>
-        <!--在这里写js吧-->
+        
         var _complete = [99,0,0,0,0,0,0,0,0,0];
         var _time_to_complete = [99,0,0,0,0,0,0,0,0,0];
         var _fail = [0,0,0,0,0,0,0,0,0,0];
@@ -113,7 +119,7 @@
                 case 6:  if(parseInt(localStorage.getItem("complete5"), 10)==1){window.location.href = "chapter/chapter6.html";}else{alert("请先完成前面的关卡！");}break;
                 case 7:  if(parseInt(localStorage.getItem("complete6"), 10)==1){window.location.href = "chapter/chapter7.html";}else{alert("请先完成前面的关卡！");}break;
                 case 8:  if(parseInt(localStorage.getItem("complete7"), 10)==1){window.location.href = "chapter/chapter8.html";}else{alert("请先完成前面的关卡！");}break;
-                case 9:  if(parseInt(localStorage.getItem("complete1"), 10)==1){window.location.href = "chapter/chapter9.html";}else{alert("这是最后一关了，所以还是请先完成前面的关卡！");}break;
+                case 9:  if(parseInt(localStorage.getItem("complete8"), 10)==1){window.location.href = "chapter/chapter9.html";}else{alert("这是最后一关了，所以还是请先完成前面的关卡！");}break;
             }
             
         }

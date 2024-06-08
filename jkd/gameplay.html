@@ -106,7 +106,7 @@
         // 使用setTimeout函数在指定的延迟后播放音频
         setTimeout(function() {
             var audio = document.getElementById('myAudio');
-            audio.volume = 0.3;
+            audio.volume = 0.5;
             if (audio.paused || audio.ended || !audio.currentTime) {
             audio.play(); // 播放音频
         }   }, delay);})  ;
@@ -125,6 +125,8 @@
     <audio id="re_blue" src="bgm/blue_re.mp3" preload="auto"></audio>
     <audio id="re_red" src="bgm/red_re.mp3" preload="auto"></audio>
     <audio id="win" src="bgm/win.mp3" preload="auto"></audio>
+    <audio id="pow" src="bgm/pow.mp3" preload="auto"></audio>
+
 
 
 
@@ -204,10 +206,10 @@
 
 
         case 3:audio_element.src = 'bgm/labour.mp3';xab=[0,10,-100];possibility=[0,
-        10,10,0,5,5,
-        5,5,5,5,5,
+        10,10,0,7,7,
+        6,6,6,5,5,
         5,5,5,0,5,
-        5,5,0,5,5,
+        3,3,0,2,5,
         5,0,0,0,0,
         0,0,0];console.log(possibility);all_card_num=40;target_x_min=500000;target_x_max=1000000;
         need_time=0;game_time=120;time_trick=0;card_trick=0;//time_trick,card_trick非0即1
@@ -216,32 +218,74 @@
             /* 这是第三关，引入nextnext等更多功能牌，还是没有时间限制 */
 
 
-        case 4:audio_element.src = "bgm/chapter4bgm.mp3";
+        case 4:audio_element.src = "bgm/chapter4bgm.mp3";xab=[-1000,0,100];possibility=[0,
+        7,6,2,6,6,
+        5,5,3,3,5,
+        5,5,0,5,5,
+        2,5,2,3,5,
+        5,10,0,0,0,
+        0,0,0];console.log(possibility);all_card_num=40;target_x_min=500000;target_x_max=1000000;
+        need_time=1;game_time=120;time_trick=0;card_trick=0;//time_trick,card_trick非0即1
             break;
 
             /*这是第四关，引入所有剩下的卡牌，出现时间限制，强调增数*/
 
-        case 5:audio_element.src = "bgm/chapter5bgm.mp3";
+        case 5:audio_element.src = "bgm/chapter5bgm.mp3";xab=[0,0,0];possibility=[0,
+        8,8,2,7,7,
+        7,7,5,5,9,
+        6,6,0,1,2,
+        2,2,2,1,4,
+        4,5,0,0,0,
+        0,0,0];console.log(possibility);all_card_num=40;target_x_min=10000;target_x_max=10100;
+        need_time=1;game_time=160;time_trick=0;card_trick=0;//time_trick,card_trick非0即1
             break;
 
             /* 这是第5关，强调精确地将x的值送入一个很小的区间 */
 
-        case 6:audio_element.src = "bgm/forshaken_city.mp3";
+        case 6:audio_element.src = "bgm/chapter6bgm.mp3";xab=[0,10,10];possibility=[0,
+        17,12,2,4,4,
+        3,3,2,2,9,
+        5,5,3,3,3,
+        2,3,0,1,1,
+        1,15,0,0,0,
+        0,0,0];console.log(possibility);all_card_num=30;target_x_min=9999000;target_x_max=30000000;
+        need_time=1;game_time=120;time_trick=0;card_trick=0;//time_trick,card_trick非0即1
             break;
 
             /*这是第6关，出现大量1，2，plusplus，有时间限制*/
 
-        case 7:audio_element.src = '';
+        case 7:audio_element.src = "bgm/chapter7bgm.mp3";xab=[0,0,0];possibility=[0,
+        17,12,2,4,4,
+        3,3,2,2,9,
+        5,5,3,3,3,
+        2,3,0,1,1,
+        1,15,0,0,0,
+        0,0,0];console.log(possibility);all_card_num=45;target_x_min=9999000;target_x_max=15999999;
+        need_time=1;game_time=180;time_trick=1;card_trick=0;//time_trick,card_trick非0即1
             break;
 
             /* 引入time_trick */
 
-        case 8:audio_element.src = '';
+        case 8:red_type=1;blue_type=0;audio_element.src = 'bgm/chapter8bgm.mp3';xab=[0,-1000,10];possibility=[0,
+        7,7,5,4,4,
+        4,4,3,3,9,
+        5,5,3,3,3,
+        2,3,0,5,3,
+        3,15,0,0,0,
+        0,0,0];console.log(possibility);all_card_num=40;target_x_min=-10000000;target_x_max=-8999999;
+        need_time=1;game_time=200;time_trick=1;card_trick=1;//time_trick,card_trick非0即1
             break;
 
             /* 引入card_trick,time_trick */
 
-        case 9:audio_element.src = '';
+        case 9:red_type=1;blue_type=1;audio_element.src = 'bgm/chapter9bgm.mp3';xab=[0,-987654321,123456789];possibility=[0,
+        5,5,5,5,5,
+        4,4,4,4,5,
+        5,5,0,5,5,
+        9,7,2,4,6,
+        6,0,0,0,0,
+        0,0,0];console.log(possibility);all_card_num=50;target_x_min=Infinity;target_x_max=Infinity;
+        need_time=0;game_time=200;time_trick=0;card_trick=0;//time_trick,card_trick非0即1
             break;
 
             /*函数牌与你，infinity*/
